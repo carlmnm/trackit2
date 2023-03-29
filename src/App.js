@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import GlobalStyle from "./components/GlobalStyle"
+import Login from "./components/Login.js"
 
-function App() {
+export default function App() {
+  /* const tokenOnLocalStorage = localStorage.getItem("token")
+  const [token, setToken] = useState(tokenOnLocalStorage)
+
+  function setAndPersistToken(token) {
+    setToken(token)
+    localStorage.setItem("token", token)
+  } */
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+    <BrowserRouter>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        {/*<Route path="/cadastro" element={} />
+          <Route path="/home" element={} />
+          <Route path="/nova-entrada" element={} />
+          <Route path="/nova-saida" element={<NewOutput />} /> */}
+      </Routes>
+    </BrowserRouter>
+  )
+}
